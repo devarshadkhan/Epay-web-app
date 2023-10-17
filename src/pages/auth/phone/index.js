@@ -79,11 +79,12 @@ import React from "react";
 import styles from "@/styles/auth/Phone.module.css";
 import PhoneInput from "react-phone-input-2";
 import classNames from "classnames";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 
 const Index = () => {
   const {
     register,
+    control,
     handleSubmit,
     formState: { errors },
     watch,
@@ -102,7 +103,7 @@ const Index = () => {
               <div className={styles.phoneNumber}>
                 <h3>Sign in to E-pay</h3>
                 <form action="POST" onSubmit={handleSubmit(onSubmit)}>
-                  <PhoneInput
+                  {/* <PhoneInput
                     country={"in"}
                     inputProps={{
                       name: "phone",
@@ -112,7 +113,20 @@ const Index = () => {
                     buttonClass="phonecountry"
                     inputClass={classNames("phonenumbercls", styles.errBorder)}
                     {...register("phone", { required: true })}
-                  />
+                  /> */}
+                  <Controller
+          name="phone"
+          control={control}
+          defaultValue=""
+          rules={{ required: 'Phone number is required' }} // Add validation rules
+          render={({ field }) => (
+            <PhoneInput
+              {...field}
+              country={'in'}
+              // Other PhoneInput props go here
+            />
+          )}
+        />
                   {errors.phone && (
                     <span className={styles.err}>Phone number is required</span>
                   )}
