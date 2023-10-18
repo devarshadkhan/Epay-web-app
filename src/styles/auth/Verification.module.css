@@ -1,0 +1,23 @@
+.veri_wrp{
+    padding: 3rem 0;
+}
+.veri_wrp  input{
+    display: none;
+}
+.veri_wrp .image_upload{
+  
+}
+.veri_wrp .imageIconUpload{
+    width: 6%;
+}
+.veri_wrp .image_upload label{
+    /* display: block !important; */
+}
+.veri_wrp .image_upload .Uploaded{
+    width: 33%;
+    border-radius: 10px;
+}
+.veri_wrp .image_upload .aadharSec{
+    /* display: flex; */
+    text-align: center;
+}
